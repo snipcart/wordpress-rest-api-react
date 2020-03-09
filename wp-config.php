@@ -1,4 +1,12 @@
 <?php
+
+// domain name
+if($_SERVER['HTTP_HOST']) {
+	define( 'WP_HOME', 'https://'.$_SERVER['HTTP_HOST'] );
+	define( 'WP_SITEURL', 'https://'.$_SERVER['HTTP_HOST'] );
+}
+
+
 // Sendgrid settings - Read in the sendgrid auth from the config //
 define('SENDGRID_USERNAME', $_ENV["SENDGRID_USERNAME"]);
 define('SENDGRID_PASSWORD', $_ENV["SENDGRID_PASSWORD"]); 
