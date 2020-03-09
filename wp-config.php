@@ -1,5 +1,9 @@
 <?php
 
+// fix SSL not detected by wordpress
+if (strpos($_SERVER['HTTP_X_FORWARDED_PROTO'], 'https') !== false)
+   $_SERVER['HTTPS']='on';
+
 // domain name
 if($_SERVER['HTTP_HOST']) {
 	define( 'WP_HOME', 'https://'.$_SERVER['HTTP_HOST'] );
