@@ -30,7 +30,15 @@ function generate_course_type() {
 		'show_in_rest'          => true,
 		'rest_base'             => 'courses',
 	);
-	register_post_type( 'course_type', $args );
+    register_post_type( 'course_type', $args );
+    
+    $meta_args = array(
+        'type'         => 'number',
+        'description'  => 'The price of a course.',
+        'single'       => true,
+        'show_in_rest' => true,
+    );
+    register_post_meta( 'course_type', 'price', $meta_args );
 
 }
 add_action( 'init', 'generate_course_type', 0 );
