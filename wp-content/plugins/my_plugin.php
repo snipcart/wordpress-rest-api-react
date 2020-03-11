@@ -31,15 +31,19 @@ function generate_course_type() {
 		'rest_base'             => 'courses',
 	);
     register_post_type( 'course_type', $args );
-    
-    $meta_args = array(
-        'type'         => 'number',
-        'description'  => 'The price of a course.',
-        'single'       => true,
-        'show_in_rest' => true,
-    );
-    register_post_meta( 'course_type', 'price', $meta_args );
-
 }
 add_action( 'init', 'generate_course_type', 0 );
 
+function get_price_field($object, $field_name, $value) {
+    return floatval(get_post_meta($object['id'])[$field_name][0]);
+}
+
+function register_course_price_in_api() {
+    register_rest_field('course_type', 'price', array(
+        'get_callback' => 'get_price_field',
+        'update_callback' => null,
+        'schema' => null,
+    ));
+}
+
+add_action( 'rest_api_init', 'register_course_price_in_api' );
