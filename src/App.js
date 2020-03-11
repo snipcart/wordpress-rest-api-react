@@ -2,6 +2,7 @@ import React from 'react';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 
+import Copyright from './Copyright';
 import Courses from './Courses';
 import Posts from './Posts';
 import { useSnipcartState } from './snipcart';
@@ -46,6 +47,9 @@ function App() {
         </Typography>
         <Posts />
       </section>
+      <footer style={{marginTop: '3em'}}>
+        <Copyright />
+      </footer>
     </Container>
   );
 }

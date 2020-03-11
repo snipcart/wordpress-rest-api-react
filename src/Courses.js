@@ -14,7 +14,7 @@ import useFetch from './useFetch';
 
 
 export default function Courses() {
-    const courses = useFetch('http://localhost/wp-json/wp/v2/courses');
+    const courses = useFetch('/wp-json/wp/v2/courses');
 
     const isSignedIn = useSnipcartState(state => state.customer.status === 'SignedIn');
   return (
