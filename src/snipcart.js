@@ -7,6 +7,7 @@ export function useSnipcartState(selector) {
 
     const isUnmounted = useRef(false);
     const cleanupFn = useRef(null);
+    const lastValue = useRef(undefined);
 
     useEffect(() => {
         return () => {
@@ -17,11 +18,11 @@ export function useSnipcartState(selector) {
         }
     }, []);
 
-    let lastValue = data;
     function refreshValue() {
         const state = window.Snipcart.store.getState();
         const currentValue = selector(state);
-        if(currentValue !== lastValue) {
+        if(currentValue !== lastValue.current) {
+            lastValue.current = currentValue;
             setData(currentValue);
         }
     }
