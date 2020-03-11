@@ -14,7 +14,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && rm -rf ./wp-content/themes/twentytwenty/static && mv ./build/* ./wp-content/themes/twentytwenty/",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -33,5 +33,5 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "/build/"
+  "homepage": "/wp-content/themes/twentytwenty/"
 }
