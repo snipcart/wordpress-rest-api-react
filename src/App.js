@@ -24,13 +24,13 @@ function App() {
         {isSignedIn ? (
           <p>
             <button onClick={signOut}>
-              Signout
+              Sign out
             </button>
           </p>
         ) : (
           <p>
             <button className="snipcart-customer-signin">
-              Signin to purchase our courses
+              Sign in to purchase our courses
             </button>
           </p>
         )}
